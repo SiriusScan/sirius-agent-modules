@@ -1,0 +1,59 @@
+{
+  "version": "1.0.0",
+  "updated": "2024-01-15T10:30:00Z",
+  "description": "Sirius vulnerability detection templates",
+  "templates": {
+    "hash-based/apache-vulnerabilities.yaml": {
+      "version": "1.0.0",
+      "author": "sirius-team",
+      "description": "Detects vulnerable Apache binaries via file hashes",
+      "vulnerability_ids": ["CVE-2023-1234", "CVE-2023-5678"],
+      "severity": "high",
+      "platforms": ["linux", "windows"],
+      "detection_type": "file-hash",
+      "created": "2024-01-15T10:30:00Z",
+      "updated": "2024-01-15T10:30:00Z"
+    },
+    "config-based/ssh-weak-config.yaml": {
+      "version": "1.0.0",
+      "author": "sirius-team",
+      "description": "Detects weak SSH configuration settings",
+      "vulnerability_ids": ["CUSTOM-SSH-001"],
+      "severity": "medium",
+      "platforms": ["linux", "macos"],
+      "detection_type": "config-file",
+      "created": "2024-01-15T10:30:00Z",
+      "updated": "2024-01-15T10:30:00Z"
+    },
+    "registry-based/windows-services.yaml": {
+      "version": "1.0.0",
+      "author": "sirius-team",
+      "description": "Detects Windows services with weak security configurations",
+      "vulnerability_ids": ["CUSTOM-WINDOWS-SERVICE-001"],
+      "severity": "high",
+      "platforms": ["windows"],
+      "detection_type": "registry",
+      "created": "2024-01-15T10:30:00Z",
+      "updated": "2024-01-15T10:30:00Z"
+    }
+  },
+  "statistics": {
+    "total_templates": 3,
+    "by_type": {
+      "hash-based": 1,
+      "registry-based": 1,
+      "config-based": 1
+    },
+    "by_severity": {
+      "critical": 0,
+      "high": 2,
+      "medium": 1,
+      "low": 0
+    },
+    "by_platform": {
+      "windows": 2,
+      "linux": 2,
+      "macos": 1
+    }
+  }
+} 

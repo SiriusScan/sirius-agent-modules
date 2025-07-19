@@ -1,0 +1,66 @@
+{
+  "version": "1.0.0",
+  "updated": "2024-01-15T10:30:00Z",
+  "description": "Sirius vulnerability detection scripts",
+  "scripts": {
+    "cross-platform/find-password-files.sh": {
+      "version": "1.0.0",
+      "author": "sirius-team",
+      "description": "Searches for password files in user directories",
+      "vulnerability_id": "CUSTOM-PASSWORD-001",
+      "severity": "medium",
+      "platforms": ["linux", "macos", "windows"],
+      "requires": ["bash"],
+      "created": "2024-01-15T10:30:00Z",
+      "updated": "2024-01-15T10:30:00Z"
+    },
+    "windows/check-service-permissions.ps1": {
+      "version": "1.0.0",
+      "author": "sirius-team",
+      "description": "Checks Windows services for weak security configurations",
+      "vulnerability_id": "CUSTOM-WINDOWS-SERVICE-001",
+      "severity": "high",
+      "platforms": ["windows"],
+      "requires": ["powershell"],
+      "created": "2024-01-15T10:30:00Z",
+      "updated": "2024-01-15T10:30:00Z"
+    },
+    "linux/check-suid-binaries.sh": {
+      "version": "1.0.0",
+      "author": "sirius-team",
+      "description": "Detects dangerous SUID binaries on Linux systems",
+      "vulnerability_id": "CUSTOM-SUID-001",
+      "severity": "high",
+      "platforms": ["linux"],
+      "requires": ["bash"],
+      "created": "2024-01-15T10:30:00Z",
+      "updated": "2024-01-15T10:30:00Z"
+    },
+    "cross-platform/certificate-validation.py": {
+      "version": "1.0.0",
+      "author": "sirius-team",
+      "description": "Validates SSL/TLS certificates for vulnerabilities",
+      "vulnerability_id": "CUSTOM-CERT-001",
+      "severity": "medium",
+      "platforms": ["linux", "macos", "windows"],
+      "requires": ["python3"],
+      "created": "2024-01-15T10:30:00Z",
+      "updated": "2024-01-15T10:30:00Z"
+    }
+  },
+  "statistics": {
+    "total_scripts": 4,
+    "by_platform": {
+      "windows": 1,
+      "linux": 2,
+      "macos": 2,
+      "cross-platform": 2
+    },
+    "by_severity": {
+      "critical": 0,
+      "high": 2,
+      "medium": 2,
+      "low": 0
+    }
+  }
+} 

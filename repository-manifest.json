@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "updated": "2024-01-15T10:30:00Z",
+  "metadata": {
+    "name": "sirius-agent-modules",
+    "description": "Official Sirius vulnerability detection templates and scripts",
+    "publisher": "Sirius Security",
+    "license": "MIT",
+    "url": "https://github.com/sirius-security/sirius-agent-modules",
+    "min_agent_version": "1.0.0"
+  },
+  "components": {
+    "templates": {
+      "version": "1.0.0",
+      "path": "templates/",
+      "manifest": "templates/manifest.json",
+      "updated": "2024-01-15T10:30:00Z"
+    },
+    "scripts": {
+      "version": "1.0.0",
+      "path": "scripts/",
+      "manifest": "scripts/manifest.json",
+      "updated": "2024-01-15T10:30:00Z"
+    }
+  },
+  "statistics": {
+    "total_templates": 3,
+    "total_scripts": 4,
+    "by_type": {
+      "hash-based": 1,
+      "registry-based": 1,
+      "config-based": 1
+    },
+    "by_platform": {
+      "windows": 3,
+      "linux": 4,
+      "macos": 3
+    }
+  }
+} 

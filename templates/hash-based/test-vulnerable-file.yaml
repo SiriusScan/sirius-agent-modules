@@ -1,0 +1,44 @@
+# Test template for verifying Sirius template-based vulnerability detection
+id: "TEST-2024-001"
+info:
+  name: "Test Vulnerable File Detection"
+  author: "sirius-test-team"
+  severity: "high"
+  description: "Detects a test vulnerable file for system verification"
+  references:
+    - "https://github.com/SiriusScan/app-agent"
+  cve: "TEST-2024-001"
+  tags:
+    - "test"
+    - "file-hash"
+    - "verification"
+  version: "1.0"
+
+detection:
+  type: "file-hash"
+  method: "sha256"
+  targets:
+    - path: "/tmp/vulnerable_test_file.txt"
+      hash: "6152f62c8fc5bd17c7dfc5f993d3d9ef576a555aa611ee4b3b378961394e7892"
+      description: "Test vulnerable file for template system verification"
+      platform: ["linux", "darwin"]
+
+  conditions:
+    - type: "file_exists"
+      value: true
+    - type: "hash_match"
+      value: true
+
+  metadata:
+    confidence: 0.99
+    impact: "Test vulnerability for system verification"
+    test_file: true
+
+remediation:
+  description: "Remove test file: rm /tmp/vulnerable_test_file.txt"
+  commands:
+    linux: "rm /tmp/vulnerable_test_file.txt"
+    darwin: "rm /tmp/vulnerable_test_file.txt"
+  verification:
+    command: "ls /tmp/vulnerable_test_file.txt"
+    expected_exit_code: 2 # File not found

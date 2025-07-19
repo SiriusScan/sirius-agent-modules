@@ -1,0 +1,34 @@
+id: "windows-service-vulnerabilities"
+info:
+  name: "Windows Service Security Vulnerabilities"
+  description: "Detects Windows services with weak security configurations"
+  author: "sirius-team"
+  severity: "high"
+  platforms: ["windows"]
+  vulnerability_ids: ["CUSTOM-WINDOWS-SERVICE-001"]
+  created: "2024-01-15T10:30:00Z"
+  updated: "2024-01-15T10:30:00Z"
+
+detection:
+  type: "registry"
+  targets:
+    - path: "HKLM\\SYSTEM\\CurrentControlSet\\Services"
+      description: "Windows Services registry key"
+
+  conditions:
+    - type: "key_exists"
+      path: "HKLM\\SYSTEM\\CurrentControlSet\\Services\\VulnerableService"
+    - type: "value_matches_pattern"
+      path: "HKLM\\SYSTEM\\CurrentControlSet\\Services\\VulnerableService\\Start"
+      value: "2"
+      description: "Service configured for automatic start"
+
+remediation:
+  description: "Configure Windows services with appropriate security settings"
+  steps:
+    - "Review service configurations in Registry Editor"
+    - "Set appropriate service startup type"
+    - "Configure service permissions"
+    - "Disable unnecessary services"
+  references:
+    - "https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings"
