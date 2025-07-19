@@ -19,7 +19,7 @@ detection:
   method: "sha256"
   targets:
     - path: "/tmp/vulnerable_test_file.txt"
-      hash: "6152f62c8fc5bd17c7dfc5f993d3d9ef576a555aa611ee4b3b378961394e7892"
+      hash: "a724b4564df7efb37dba9ffb18fd857212d2412279c86c6a1425fa2b393ac1a7"
       description: "Test vulnerable file for template system verification"
       platform: ["linux", "darwin"]
 
