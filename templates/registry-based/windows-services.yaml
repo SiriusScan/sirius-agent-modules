@@ -11,24 +11,32 @@ info:
 
 detection:
   type: "registry"
-  targets:
-    - path: "HKLM\\SYSTEM\\CurrentControlSet\\Services"
-      description: "Windows Services registry key"
+  keys:
+    - path: "HKLM\\SYSTEM\\CurrentControlSet\\Services\\VulnerableService"
+      value: "Start"
+      pattern: "2"
+      description: "Service configured for automatic start"
 
   conditions:
     - type: "key_exists"
-      path: "HKLM\\SYSTEM\\CurrentControlSet\\Services\\VulnerableService"
+      value: true
     - type: "value_matches_pattern"
-      path: "HKLM\\SYSTEM\\CurrentControlSet\\Services\\VulnerableService\\Start"
-      value: "2"
-      description: "Service configured for automatic start"
+      value: true
+
+  metadata:
+    confidence: 0.90
+    impact: "Unauthorized service access"
 
 remediation:
   description: "Configure Windows services with appropriate security settings"
-  steps:
-    - "Review service configurations in Registry Editor"
-    - "Set appropriate service startup type"
-    - "Configure service permissions"
-    - "Disable unnecessary services"
+  commands:
+    windows: |
+      # Review service configurations
+      sc query VulnerableService
+      # Set service to manual start
+      sc config VulnerableService start= demand
+  verification:
+    command: "sc query VulnerableService | findstr STATE"
+    expected_pattern: "STATE.*STOPPED"
   references:
     - "https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings"

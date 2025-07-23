@@ -25,9 +25,12 @@ detection:
       description: "Apache 2.4.41 vulnerable binary (Windows)"
 
   conditions:
-    - file_exists: true
-    - hash_match: true
-    - file_executable: true
+    - type: "file_exists"
+      value: true
+    - type: "hash_match"
+      value: true
+    - type: "file_executable"
+      value: true
 
   metadata:
     confidence: 0.95

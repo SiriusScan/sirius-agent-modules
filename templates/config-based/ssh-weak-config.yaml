@@ -33,8 +33,10 @@ detection:
           severity: "low"
 
   conditions:
-    - file_exists: true
-    - pattern_found: true
+    - type: "file_exists"
+      value: true
+    - type: "pattern_found"
+      value: true
 
   metadata:
     confidence: 0.85
