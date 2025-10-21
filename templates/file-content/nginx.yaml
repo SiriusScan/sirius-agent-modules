@@ -1,0 +1,25 @@
+id: NGINX-001
+name: Nginx Web Server Detection
+version: "1.0.0"
+author: "Sirius Team"
+description: "Detects Nginx web server installations by checking configuration files"
+severity: "medium"
+platforms: ["linux", "darwin"]
+
+detection:
+  type: "file-content"
+  steps:
+    - name: "Check Nginx configuration"
+      type: "file-content"
+      config:
+        paths:
+          - "/etc/nginx/nginx.conf"
+          - "/usr/local/nginx/conf/nginx.conf"
+          - "/opt/nginx/conf/nginx.conf"
+        patterns:
+          - "server_name"
+          - "listen\\s+80"
+          - "location\\s+/"
+        match_any: true
+        case_sensitive: false
+      expected_result: "found"

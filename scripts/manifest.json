@@ -1,51 +1,63 @@
 {
-  "version": "1.0.0",
-  "updated": "2024-01-15T10:30:00Z",
+  "version": "2.0.0",
+  "updated": "2024-01-20T10:00:00Z",
   "description": "Sirius vulnerability detection scripts",
   "scripts": {
-    "cross-platform/find-password-files.sh": {
+    "cross-platform/certificate-validation.py": {
+      "id": "CERT-VALIDATION-001",
       "version": "1.0.0",
-      "author": "sirius-team",
-      "description": "Searches for password files in user directories",
-      "vulnerability_id": "CUSTOM-PASSWORD-001",
+      "checksum": "sha256:7ad79cadf96bd25bf09665c22ff562da9dc02bb100c0a7023b27056089352356",
+      "size": 5442,
       "severity": "medium",
       "platforms": ["linux", "macos", "windows"],
-      "requires": ["bash"],
-      "created": "2024-01-15T10:30:00Z",
-      "updated": "2024-01-15T10:30:00Z"
-    },
-    "windows/check-service-permissions.ps1": {
-      "version": "1.0.0",
+      "language": "python",
       "author": "sirius-team",
-      "description": "Checks Windows services for weak security configurations",
-      "vulnerability_id": "CUSTOM-WINDOWS-SERVICE-001",
-      "severity": "high",
-      "platforms": ["windows"],
-      "requires": ["powershell"],
       "created": "2024-01-15T10:30:00Z",
-      "updated": "2024-01-15T10:30:00Z"
+      "updated": "2024-01-15T10:30:00Z",
+      "vulnerability_ids": ["CUSTOM-CERT-001"],
+      "requires": ["python3"]
+    },
+    "cross-platform/find-password-files.sh": {
+      "id": "PASSWORD-FILES-001",
+      "version": "1.0.0",
+      "checksum": "sha256:",
+      "size": 0,
+      "severity": "medium",
+      "platforms": ["linux", "macos", "windows"],
+      "language": "bash",
+      "author": "sirius-team",
+      "created": "2024-01-15T10:30:00Z",
+      "updated": "2024-01-15T10:30:00Z",
+      "vulnerability_ids": ["CUSTOM-PASSWORD-001"],
+      "requires": ["bash"]
     },
     "linux/check-suid-binaries.sh": {
+      "id": "SUID-BINARIES-001",
       "version": "1.0.0",
-      "author": "sirius-team",
-      "description": "Detects dangerous SUID binaries on Linux systems",
-      "vulnerability_id": "CUSTOM-SUID-001",
+      "checksum": "sha256:f67342074a262207559deaa0fe4f813d0891737470b477f54983268b20073f00",
+      "size": 2842,
       "severity": "high",
       "platforms": ["linux"],
-      "requires": ["bash"],
-      "created": "2024-01-15T10:30:00Z",
-      "updated": "2024-01-15T10:30:00Z"
-    },
-    "cross-platform/certificate-validation.py": {
-      "version": "1.0.0",
+      "language": "bash",
       "author": "sirius-team",
-      "description": "Validates SSL/TLS certificates for vulnerabilities",
-      "vulnerability_id": "CUSTOM-CERT-001",
-      "severity": "medium",
-      "platforms": ["linux", "macos", "windows"],
-      "requires": ["python3"],
       "created": "2024-01-15T10:30:00Z",
-      "updated": "2024-01-15T10:30:00Z"
+      "updated": "2024-01-15T10:30:00Z",
+      "vulnerability_ids": ["CUSTOM-SUID-001"],
+      "requires": ["bash"]
+    },
+    "windows/check-service-permissions.ps1": {
+      "id": "SERVICE-PERMISSIONS-001",
+      "version": "1.0.0",
+      "checksum": "sha256:a683cc481f2de79ef1262e65c7e7ebb5456857a67bb7ca84c0cedf2726091026",
+      "size": 2581,
+      "severity": "high",
+      "platforms": ["windows"],
+      "language": "powershell",
+      "author": "sirius-team",
+      "created": "2024-01-15T10:30:00Z",
+      "updated": "2024-01-15T10:30:00Z",
+      "vulnerability_ids": ["CUSTOM-WINDOWS-SERVICE-001"],
+      "requires": ["powershell"]
     }
   },
   "statistics": {
@@ -56,6 +68,11 @@
       "macos": 2,
       "cross-platform": 2
     },
+    "by_language": {
+      "bash": 2,
+      "python": 1,
+      "powershell": 1
+    },
     "by_severity": {
       "critical": 0,
       "high": 2,
@@ -63,4 +80,4 @@
       "low": 0
     }
   }
-} 
+}
