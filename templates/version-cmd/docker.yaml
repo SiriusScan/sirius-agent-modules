@@ -1,22 +1,24 @@
 id: DOCKER-001
-name: Docker Installation Detection
-version: "1.0.0"
-author: "Sirius Team"
-description: "Detects Docker installation by checking version command"
-severity: "low"
-platforms: ["linux", "darwin", "windows"]
+info:
+  name: Docker Installation Detection
+  version: "1.0.0"
+  author: "Sirius Team"
+  description: "Detects Docker installation by checking version command"
+  severity: "low"
+  tags:
+    - container
+    - docker
 
 detection:
-  type: "version-cmd"
+  logic: any
   steps:
     - name: "Check Docker version"
-      type: "version-cmd"
+      type: version_cmd
+      platforms:
+        - linux
+        - darwin
+        - windows
+      weight: 1.0
       config:
-        command: "docker --version"
-        patterns:
-          - "Docker version"
-          - "docker\\s+version"
-        match_any: true
-        case_sensitive: false
-        timeout: 5
-      expected_result: "found"
+        command: ["docker", "--version"]
+        regex: "Docker version"

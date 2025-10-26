@@ -1,24 +1,24 @@
 id: APACHE-001
-name: Apache HTTP Server Detection
-version: "1.0.0"
-author: "Sirius Team"
-description: "Detects Apache HTTP Server installations by checking for common file hashes"
-severity: "medium"
-platforms: ["linux", "windows", "darwin"]
+info:
+  name: Apache HTTP Server Detection
+  version: "1.0.0"
+  author: "Sirius Team"
+  description: "Detects Apache HTTP Server installations by checking for common file hashes"
+  severity: "medium"
+  tags:
+    - web-server
+    - apache
 
 detection:
-  type: "file-hash"
+  logic: any
   steps:
-    - name: "Check Apache binary"
-      type: "file-hash"
+    - name: "Check /usr/sbin/apache2"
+      type: file_hash
+      platforms:
+        - linux
+        - darwin
+      weight: 1.0
       config:
-        paths:
-          - "/usr/sbin/apache2"
-          - "/usr/sbin/httpd"
-          - "/opt/apache2/bin/httpd"
-          - "C:\\Program Files\\Apache Group\\Apache2\\bin\\httpd.exe"
-        hashes:
-          - "sha256:abcd1234567890abcdef1234567890abcdef1234567890abcdef1234567890ab"
-          - "sha256:efgh5678901234cdef5678901234cdef5678901234cdef5678901234cdef5678"
-        match_any: true
-      expected_result: "found"
+        path: "/usr/sbin/apache2"
+        hash: "abcd1234567890abcdef1234567890abcdef1234567890abcdef1234567890ab"
+        algorithm: "sha256"
