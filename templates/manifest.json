@@ -1,6 +1,6 @@
 {
   "version": "2.3.0",
-  "updated": "2025-01-25T14:00:00Z",
+  "updated": "2025-11-25T21:29:59.017Z",
   "description": "Sirius vulnerability detection templates",
   "templates": {
     "file-hash/apache.yaml": {
@@ -9,7 +9,11 @@
       "checksum": "sha256:demo1234567890abcdef1234567890abcdef1234567890abcdef1234567890ab",
       "size": 850,
       "severity": "medium",
-      "platforms": ["linux", "windows", "darwin"],
+      "platforms": [
+        "linux",
+        "windows",
+        "darwin"
+      ],
       "detection_type": "file-hash",
       "author": "Sirius Team",
       "created": "2024-01-20T10:00:00Z",
@@ -21,7 +25,10 @@
       "checksum": "sha256:demo5678901234cdef5678901234cdef5678901234cdef5678901234cdef5678",
       "size": 720,
       "severity": "medium",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "file-content",
       "author": "Sirius Team",
       "created": "2024-01-20T10:00:00Z",
@@ -33,7 +40,11 @@
       "checksum": "sha256:demo9012345678efgh9012345678efgh9012345678efgh9012345678efgh9012",
       "size": 650,
       "severity": "low",
-      "platforms": ["linux", "darwin", "windows"],
+      "platforms": [
+        "linux",
+        "darwin",
+        "windows"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2024-01-20T10:00:00Z",
@@ -46,7 +57,10 @@
       "checksum": "sha256:pending",
       "size": 1200,
       "severity": "high",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "file-content",
       "author": "Sirius Team",
       "created": "2025-01-25T10:00:00Z",
@@ -59,7 +73,10 @@
       "checksum": "sha256:pending",
       "size": 1100,
       "severity": "medium",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "file-content",
       "author": "Sirius Team",
       "created": "2025-01-25T10:00:00Z",
@@ -72,7 +89,10 @@
       "checksum": "sha256:pending",
       "size": 1150,
       "severity": "medium",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "file-content",
       "author": "Sirius Team",
       "created": "2025-01-25T10:00:00Z",
@@ -85,7 +105,10 @@
       "checksum": "sha256:pending",
       "size": 1100,
       "severity": "medium",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "file-content",
       "author": "Sirius Team",
       "created": "2025-01-25T10:00:00Z",
@@ -98,7 +121,10 @@
       "checksum": "sha256:pending",
       "size": 1050,
       "severity": "critical",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "file-content",
       "author": "Sirius Team",
       "created": "2025-01-25T10:00:00Z",
@@ -111,7 +137,9 @@
       "checksum": "sha256:pending",
       "size": 1100,
       "severity": "critical",
-      "platforms": ["darwin"],
+      "platforms": [
+        "darwin"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2025-01-25T12:00:00Z",
@@ -124,7 +152,9 @@
       "checksum": "sha256:pending",
       "size": 1200,
       "severity": "high",
-      "platforms": ["darwin"],
+      "platforms": [
+        "darwin"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2025-01-25T12:00:00Z",
@@ -137,7 +167,9 @@
       "checksum": "sha256:pending",
       "size": 1150,
       "severity": "high",
-      "platforms": ["darwin"],
+      "platforms": [
+        "darwin"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2025-01-25T12:00:00Z",
@@ -150,7 +182,9 @@
       "checksum": "sha256:pending",
       "size": 1100,
       "severity": "medium",
-      "platforms": ["darwin"],
+      "platforms": [
+        "darwin"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2025-01-25T12:00:00Z",
@@ -163,7 +197,10 @@
       "checksum": "sha256:pending",
       "size": 1050,
       "severity": "high",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2025-01-25T14:00:00Z",
@@ -176,7 +213,10 @@
       "checksum": "sha256:pending",
       "size": 1100,
       "severity": "high",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2025-01-25T14:00:00Z",
@@ -189,7 +229,10 @@
       "checksum": "sha256:pending",
       "size": 1050,
       "severity": "medium",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2025-01-25T14:00:00Z",
@@ -202,7 +245,10 @@
       "checksum": "sha256:pending",
       "size": 1100,
       "severity": "critical",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2025-01-25T14:00:00Z",
@@ -215,7 +261,10 @@
       "checksum": "sha256:pending",
       "size": 1150,
       "severity": "high",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2025-01-25T14:00:00Z",
@@ -228,7 +277,10 @@
       "checksum": "sha256:pending",
       "size": 1200,
       "severity": "high",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2025-01-25T14:00:00Z",
@@ -241,11 +293,29 @@
       "checksum": "sha256:pending",
       "size": 1100,
       "severity": "medium",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "file-content",
       "author": "Sirius Team",
       "created": "2025-01-25T14:00:00Z",
       "updated": "2025-01-25T14:00:00Z"
+    },
+    "version-cmd/CVE-2025-26519.yaml": {
+      "id": "CVE-2025-26519",
+      "vulnerability_id": "CVE-2025-26519",
+      "version": "1.0",
+      "checksum": "sha256:39c5bfa92a5846690a0de1ca58b6b3d9b9ca865d3f3a22184a913442a37de44f",
+      "size": 2814,
+      "severity": "high",
+      "platforms": [
+        "linux"
+      ],
+      "detection_type": "version_cmd",
+      "author": "Sirius Template Factory",
+      "created": "2025-11-25T21:29:59.017Z",
+      "updated": "2025-11-25T21:29:59.017Z"
     }
   },
   "statistics": {
