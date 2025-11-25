@@ -1,6 +1,6 @@
 {
-  "version": "2.0.0",
-  "updated": "2024-01-20T10:00:00Z",
+  "version": "2.3.0",
+  "updated": "2025-01-25T14:00:00Z",
   "description": "Sirius vulnerability detection templates",
   "templates": {
     "file-hash/apache.yaml": {
@@ -38,25 +38,233 @@
       "author": "Sirius Team",
       "created": "2024-01-20T10:00:00Z",
       "updated": "2024-01-20T10:00:00Z"
+    },
+    "file-content/ssh-001-root-login.yaml": {
+      "id": "SSH-001",
+      "vulnerability_id": "CWE-250",
+      "version": "1.0.0",
+      "checksum": "sha256:pending",
+      "size": 1200,
+      "severity": "high",
+      "platforms": ["linux", "darwin"],
+      "detection_type": "file-content",
+      "author": "Sirius Team",
+      "created": "2025-01-25T10:00:00Z",
+      "updated": "2025-01-25T10:00:00Z"
+    },
+    "file-content/ssh-002-password-auth.yaml": {
+      "id": "SSH-002",
+      "vulnerability_id": "CWE-287",
+      "version": "1.0.0",
+      "checksum": "sha256:pending",
+      "size": 1100,
+      "severity": "medium",
+      "platforms": ["linux", "darwin"],
+      "detection_type": "file-content",
+      "author": "Sirius Team",
+      "created": "2025-01-25T10:00:00Z",
+      "updated": "2025-01-25T10:00:00Z"
+    },
+    "file-content/ssh-003-weak-ciphers.yaml": {
+      "id": "SSH-003",
+      "vulnerability_id": "CWE-327",
+      "version": "1.0.0",
+      "checksum": "sha256:pending",
+      "size": 1150,
+      "severity": "medium",
+      "platforms": ["linux", "darwin"],
+      "detection_type": "file-content",
+      "author": "Sirius Team",
+      "created": "2025-01-25T10:00:00Z",
+      "updated": "2025-01-25T10:00:00Z"
+    },
+    "file-content/ssh-004-weak-macs.yaml": {
+      "id": "SSH-004",
+      "vulnerability_id": "CWE-327",
+      "version": "1.0.0",
+      "checksum": "sha256:pending",
+      "size": 1100,
+      "severity": "medium",
+      "platforms": ["linux", "darwin"],
+      "detection_type": "file-content",
+      "author": "Sirius Team",
+      "created": "2025-01-25T10:00:00Z",
+      "updated": "2025-01-25T10:00:00Z"
+    },
+    "file-content/ssh-005-empty-passwords.yaml": {
+      "id": "SSH-005",
+      "vulnerability_id": "CWE-258",
+      "version": "1.0.0",
+      "checksum": "sha256:pending",
+      "size": 1050,
+      "severity": "critical",
+      "platforms": ["linux", "darwin"],
+      "detection_type": "file-content",
+      "author": "Sirius Team",
+      "created": "2025-01-25T10:00:00Z",
+      "updated": "2025-01-25T10:00:00Z"
+    },
+    "version-cmd/mac-001-sip-disabled.yaml": {
+      "id": "MAC-001",
+      "vulnerability_id": "SIRIUS-MAC-SIP",
+      "version": "1.0.0",
+      "checksum": "sha256:pending",
+      "size": 1100,
+      "severity": "critical",
+      "platforms": ["darwin"],
+      "detection_type": "version-cmd",
+      "author": "Sirius Team",
+      "created": "2025-01-25T12:00:00Z",
+      "updated": "2025-01-25T12:00:00Z"
+    },
+    "version-cmd/mac-002-gatekeeper-disabled.yaml": {
+      "id": "MAC-002",
+      "vulnerability_id": "CVE-2022-42821",
+      "version": "1.0.0",
+      "checksum": "sha256:pending",
+      "size": 1200,
+      "severity": "high",
+      "platforms": ["darwin"],
+      "detection_type": "version-cmd",
+      "author": "Sirius Team",
+      "created": "2025-01-25T12:00:00Z",
+      "updated": "2025-01-25T12:00:00Z"
+    },
+    "version-cmd/mac-003-filevault-disabled.yaml": {
+      "id": "MAC-003",
+      "vulnerability_id": "CWE-311",
+      "version": "1.0.0",
+      "checksum": "sha256:pending",
+      "size": 1150,
+      "severity": "high",
+      "platforms": ["darwin"],
+      "detection_type": "version-cmd",
+      "author": "Sirius Team",
+      "created": "2025-01-25T12:00:00Z",
+      "updated": "2025-01-25T12:00:00Z"
+    },
+    "version-cmd/mac-004-firewall-disabled.yaml": {
+      "id": "MAC-004",
+      "vulnerability_id": "CWE-284",
+      "version": "1.0.0",
+      "checksum": "sha256:pending",
+      "size": 1100,
+      "severity": "medium",
+      "platforms": ["darwin"],
+      "detection_type": "version-cmd",
+      "author": "Sirius Team",
+      "created": "2025-01-25T12:00:00Z",
+      "updated": "2025-01-25T12:00:00Z"
+    },
+    "version-cmd/perm-001-world-writable-etc.yaml": {
+      "id": "PERM-001",
+      "vulnerability_id": "CWE-732",
+      "version": "1.0.0",
+      "checksum": "sha256:pending",
+      "size": 1050,
+      "severity": "high",
+      "platforms": ["linux", "darwin"],
+      "detection_type": "version-cmd",
+      "author": "Sirius Team",
+      "created": "2025-01-25T14:00:00Z",
+      "updated": "2025-01-25T14:00:00Z"
+    },
+    "version-cmd/perm-002-ssh-keys-readable.yaml": {
+      "id": "PERM-002",
+      "vulnerability_id": "CWE-732",
+      "version": "1.0.0",
+      "checksum": "sha256:pending",
+      "size": 1100,
+      "severity": "high",
+      "platforms": ["linux", "darwin"],
+      "detection_type": "version-cmd",
+      "author": "Sirius Team",
+      "created": "2025-01-25T14:00:00Z",
+      "updated": "2025-01-25T14:00:00Z"
+    },
+    "version-cmd/perm-003-sshd-config-readable.yaml": {
+      "id": "PERM-003",
+      "vulnerability_id": "CWE-732",
+      "version": "1.0.0",
+      "checksum": "sha256:pending",
+      "size": 1050,
+      "severity": "medium",
+      "platforms": ["linux", "darwin"],
+      "detection_type": "version-cmd",
+      "author": "Sirius Team",
+      "created": "2025-01-25T14:00:00Z",
+      "updated": "2025-01-25T14:00:00Z"
+    },
+    "version-cmd/perm-004-sudoers-writable.yaml": {
+      "id": "PERM-004",
+      "vulnerability_id": "CWE-732",
+      "version": "1.0.0",
+      "checksum": "sha256:pending",
+      "size": 1100,
+      "severity": "critical",
+      "platforms": ["linux", "darwin"],
+      "detection_type": "version-cmd",
+      "author": "Sirius Team",
+      "created": "2025-01-25T14:00:00Z",
+      "updated": "2025-01-25T14:00:00Z"
+    },
+    "version-cmd/cred-001-git-credentials.yaml": {
+      "id": "CRED-001",
+      "vulnerability_id": "CWE-256",
+      "version": "1.0.0",
+      "checksum": "sha256:pending",
+      "size": 1150,
+      "severity": "high",
+      "platforms": ["linux", "darwin"],
+      "detection_type": "version-cmd",
+      "author": "Sirius Team",
+      "created": "2025-01-25T14:00:00Z",
+      "updated": "2025-01-25T14:00:00Z"
+    },
+    "version-cmd/cred-002-aws-credentials.yaml": {
+      "id": "CRED-002",
+      "vulnerability_id": "CWE-732",
+      "version": "1.0.0",
+      "checksum": "sha256:pending",
+      "size": 1200,
+      "severity": "high",
+      "platforms": ["linux", "darwin"],
+      "detection_type": "version-cmd",
+      "author": "Sirius Team",
+      "created": "2025-01-25T14:00:00Z",
+      "updated": "2025-01-25T14:00:00Z"
+    },
+    "file-content/cred-003-docker-config-auth.yaml": {
+      "id": "CRED-003",
+      "vulnerability_id": "CWE-256",
+      "version": "1.0.0",
+      "checksum": "sha256:pending",
+      "size": 1100,
+      "severity": "medium",
+      "platforms": ["linux", "darwin"],
+      "detection_type": "file-content",
+      "author": "Sirius Team",
+      "created": "2025-01-25T14:00:00Z",
+      "updated": "2025-01-25T14:00:00Z"
     }
   },
   "statistics": {
-    "total_templates": 3,
+    "total_templates": 19,
     "by_type": {
       "file-hash": 1,
-      "file-content": 1,
-      "version-cmd": 1
+      "file-content": 8,
+      "version-cmd": 10
     },
     "by_severity": {
-      "critical": 0,
-      "high": 0,
-      "medium": 2,
+      "critical": 4,
+      "high": 7,
+      "medium": 7,
       "low": 1
     },
     "by_platform": {
       "windows": 2,
-      "linux": 3,
-      "darwin": 2
+      "linux": 17,
+      "darwin": 18
     }
   }
 }

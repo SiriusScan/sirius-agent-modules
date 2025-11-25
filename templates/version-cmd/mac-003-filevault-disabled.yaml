@@ -1,0 +1,33 @@
+id: MAC-003
+info:
+  name: FileVault Disk Encryption Disabled
+  vulnerability_id: CWE-311
+  version: "1.0.0"
+  author: "Sirius Team"
+  severity: high
+  description: "Detects macOS systems without FileVault disk encryption enabled. FileVault encrypts the entire system disk, protecting data at rest from unauthorized access if the device is lost or stolen."
+  cwe:
+    - CWE-311
+  references:
+    - https://cwe.mitre.org/data/definitions/311.html
+    - https://support.apple.com/en-us/102384
+    - https://support.apple.com/guide/mac-help/protect-data-on-your-mac-with-filevault-mh11785/mac
+  tags:
+    - macos
+    - encryption
+    - filevault
+    - data-protection
+    - hardening
+  remediation: "Enable FileVault in System Settings > Privacy & Security > FileVault, or run 'sudo fdesetup enable' in Terminal. A recovery key will be generated - store it securely."
+
+detection:
+  logic: any
+  steps:
+    - name: "Check FileVault status via fdesetup"
+      type: version_cmd
+      platforms:
+        - darwin
+      weight: 1.0
+      config:
+        command: ["fdesetup", "status"]
+        regex: "FileVault is Off"

@@ -1,0 +1,34 @@
+id: MAC-002
+info:
+  name: Gatekeeper Disabled
+  vulnerability_id: CVE-2022-42821
+  version: "1.0.0"
+  author: "Sirius Team"
+  severity: high
+  description: "Detects macOS systems with Gatekeeper disabled. Gatekeeper verifies downloaded applications before they run, protecting against malicious software. CVE-2022-42821 was a notable Gatekeeper bypass vulnerability."
+  cve:
+    - CVE-2022-42821
+  cwe:
+    - CWE-693
+  references:
+    - https://support.apple.com/en-us/102445
+    - https://nvd.nist.gov/vuln/detail/CVE-2022-42821
+    - https://www.microsoft.com/en-us/security/blog/2022/12/19/gatekeepers-achilles-heel-unearthing-a-macos-vulnerability/
+  tags:
+    - macos
+    - gatekeeper
+    - code-signing
+    - hardening
+  remediation: "Re-enable Gatekeeper by running 'sudo spctl --master-enable' in Terminal. Verify with 'spctl --status' which should show 'assessments enabled'."
+
+detection:
+  logic: any
+  steps:
+    - name: "Check Gatekeeper status via spctl"
+      type: version_cmd
+      platforms:
+        - darwin
+      weight: 1.0
+      config:
+        command: ["spctl", "--status"]
+        regex: "assessments disabled"

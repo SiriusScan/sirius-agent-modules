@@ -1,0 +1,36 @@
+id: MAC-004
+info:
+  name: macOS Application Firewall Disabled
+  vulnerability_id: CWE-284
+  version: "1.0.0"
+  author: "Sirius Team"
+  severity: medium
+  description: "Detects macOS systems with the Application Firewall disabled. The firewall controls incoming network connections to applications and services, providing an additional layer of protection against unauthorized access."
+  cwe:
+    - CWE-284
+  references:
+    - https://cwe.mitre.org/data/definitions/284.html
+    - https://support.apple.com/en-us/102388
+    - https://support.apple.com/guide/mac-help/block-connections-to-your-mac-with-a-firewall-mh34041/mac
+  tags:
+    - macos
+    - firewall
+    - network-security
+    - hardening
+  remediation: "Enable the firewall in System Settings > Network > Firewall, or run 'sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on' in Terminal."
+
+detection:
+  logic: any
+  steps:
+    - name: "Check firewall status via socketfilterfw"
+      type: version_cmd
+      platforms:
+        - darwin
+      weight: 1.0
+      config:
+        command:
+          [
+            "/usr/libexec/ApplicationFirewall/socketfilterfw",
+            "--getglobalstate",
+          ]
+        regex: "Firewall is disabled"

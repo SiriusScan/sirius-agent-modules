@@ -1,0 +1,34 @@
+id: CRED-003
+info:
+  name: Docker Config Contains Plaintext Auth
+  vulnerability_id: CWE-256
+  version: "1.0.0"
+  author: "Sirius Team"
+  severity: medium
+  description: "Detects Docker configuration files containing base64-encoded authentication credentials. While base64 is not encryption, these credentials can be easily decoded to reveal registry passwords or tokens."
+  cwe:
+    - CWE-256
+    - CWE-522
+  references:
+    - https://cwe.mitre.org/data/definitions/256.html
+    - https://docs.docker.com/engine/reference/commandline/login/
+    - https://docs.docker.com/desktop/get-started/#credentials-management-for-linux-users
+  tags:
+    - credentials
+    - docker
+    - container
+    - hardening
+  remediation: "Use a credential helper for Docker instead of storing auth in config.json. On macOS use 'docker-credential-osxkeychain'. On Linux use 'docker-credential-pass' or 'docker-credential-secretservice'. Run 'docker logout' for each registry and re-login with a credential helper configured."
+
+detection:
+  logic: any
+  steps:
+    - name: "Check for auth field in Docker config"
+      type: file_content
+      platforms:
+        - linux
+        - darwin
+      weight: 1.0
+      config:
+        path: "$HOME/.docker/config.json"
+        regex: "\"auth\"\\s*:\\s*\"[A-Za-z0-9+/=]+"

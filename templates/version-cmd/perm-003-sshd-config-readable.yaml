@@ -1,0 +1,37 @@
+id: PERM-003
+info:
+  name: SSH Server Config World-Readable
+  vulnerability_id: CWE-732
+  version: "1.0.0"
+  author: "Sirius Team"
+  severity: medium
+  description: "Detects when the SSH server configuration file (/etc/ssh/sshd_config) is world-readable. While not directly exploitable, it may reveal security settings to unprivileged users."
+  cwe:
+    - CWE-732
+  references:
+    - https://cwe.mitre.org/data/definitions/732.html
+    - https://man.openbsd.org/sshd_config
+  tags:
+    - permissions
+    - ssh
+    - configuration
+    - hardening
+  remediation: "Set sshd_config permissions to 600 using 'sudo chmod 600 /etc/ssh/sshd_config'. This restricts access to root only."
+
+detection:
+  logic: any
+  steps:
+    - name: "Check sshd_config is world-readable"
+      type: version_cmd
+      platforms:
+        - linux
+        - darwin
+      weight: 1.0
+      config:
+        command:
+          [
+            "sh",
+            "-c",
+            "stat -f '%Sp' /etc/ssh/sshd_config 2>/dev/null || stat -c '%A' /etc/ssh/sshd_config 2>/dev/null",
+          ]
+        regex: "r.{6}r"

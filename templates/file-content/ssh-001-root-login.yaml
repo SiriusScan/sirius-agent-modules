@@ -1,0 +1,33 @@
+id: SSH-001
+info:
+  name: SSH Root Login Enabled
+  vulnerability_id: CWE-250
+  version: "1.0.0"
+  author: "Sirius Team"
+  severity: high
+  description: "Detects SSH servers configured to allow direct root login. Allowing root login via SSH increases the attack surface by enabling direct access to the most privileged account."
+  cwe:
+    - CWE-250
+  references:
+    - https://cwe.mitre.org/data/definitions/250.html
+    - https://man.openbsd.org/sshd_config
+    - https://www.ssh.com/academy/ssh/sshd_config
+  tags:
+    - ssh
+    - misconfiguration
+    - privilege-escalation
+    - hardening
+  remediation: "Set 'PermitRootLogin no' in /etc/ssh/sshd_config and restart the SSH service. Use sudo or su for privileged operations after logging in as a regular user."
+
+detection:
+  logic: any
+  steps:
+    - name: "Check sshd_config for PermitRootLogin yes"
+      type: file_content
+      platforms:
+        - linux
+        - darwin
+      weight: 1.0
+      config:
+        path: "/etc/ssh/sshd_config"
+        regex: "^\\s*PermitRootLogin\\s+(yes|without-password|prohibit-password)"

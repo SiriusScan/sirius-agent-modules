@@ -1,0 +1,33 @@
+id: SSH-004
+info:
+  name: SSH Weak MACs Enabled
+  vulnerability_id: CWE-327
+  version: "1.0.0"
+  author: "Sirius Team"
+  severity: medium
+  description: "Detects SSH servers configured with weak or deprecated Message Authentication Codes (MACs). Weak MACs like MD5 and SHA1 are cryptographically weak and should be replaced with stronger alternatives."
+  cwe:
+    - CWE-327
+  references:
+    - https://cwe.mitre.org/data/definitions/327.html
+    - https://man.openbsd.org/sshd_config
+    - https://www.openssh.com/legacy.html
+  tags:
+    - ssh
+    - misconfiguration
+    - cryptography
+    - hardening
+  remediation: "Remove weak MACs from the 'MACs' directive in /etc/ssh/sshd_config. Recommended MACs include hmac-sha2-512-etm@openssh.com, hmac-sha2-256-etm@openssh.com, and umac-128-etm@openssh.com."
+
+detection:
+  logic: any
+  steps:
+    - name: "Check sshd_config for weak MACs"
+      type: file_content
+      platforms:
+        - linux
+        - darwin
+      weight: 1.0
+      config:
+        path: "/etc/ssh/sshd_config"
+        regex: "^\\s*MACs\\s+.*(hmac-md5|hmac-md5-96|hmac-sha1|hmac-sha1-96|umac-64)"

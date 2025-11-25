@@ -1,0 +1,32 @@
+id: MAC-001
+info:
+  name: System Integrity Protection (SIP) Disabled
+  vulnerability_id: SIRIUS-MAC-SIP
+  version: "1.0.0"
+  author: "Sirius Team"
+  severity: critical
+  description: "Detects macOS systems with System Integrity Protection (SIP) disabled. SIP is a critical security feature that protects system files and processes from modification, even by root users."
+  cwe:
+    - CWE-693
+  references:
+    - https://support.apple.com/en-us/102149
+    - https://developer.apple.com/documentation/security/disabling_and_enabling_system_integrity_protection
+  tags:
+    - macos
+    - sip
+    - system-integrity
+    - critical
+    - hardening
+  remediation: "Re-enable SIP by booting into Recovery Mode (Command+R during startup), opening Terminal, and running 'csrutil enable'. Reboot the system for changes to take effect."
+
+detection:
+  logic: any
+  steps:
+    - name: "Check SIP status via csrutil"
+      type: version_cmd
+      platforms:
+        - darwin
+      weight: 1.0
+      config:
+        command: ["csrutil", "status"]
+        regex: "System Integrity Protection status: disabled"

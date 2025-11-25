@@ -1,0 +1,33 @@
+id: SSH-003
+info:
+  name: SSH Weak Ciphers Enabled
+  vulnerability_id: CWE-327
+  version: "1.0.0"
+  author: "Sirius Team"
+  severity: medium
+  description: "Detects SSH servers configured with weak or deprecated encryption ciphers. Weak ciphers like 3des-cbc, arcfour, and blowfish-cbc are vulnerable to known cryptographic attacks."
+  cwe:
+    - CWE-327
+  references:
+    - https://cwe.mitre.org/data/definitions/327.html
+    - https://man.openbsd.org/sshd_config
+    - https://www.openssh.com/legacy.html
+  tags:
+    - ssh
+    - misconfiguration
+    - cryptography
+    - hardening
+  remediation: "Remove weak ciphers from the 'Ciphers' directive in /etc/ssh/sshd_config. Recommended ciphers include chacha20-poly1305@openssh.com, aes256-gcm@openssh.com, and aes128-gcm@openssh.com."
+
+detection:
+  logic: any
+  steps:
+    - name: "Check sshd_config for weak ciphers"
+      type: file_content
+      platforms:
+        - linux
+        - darwin
+      weight: 1.0
+      config:
+        path: "/etc/ssh/sshd_config"
+        regex: "^\\s*Ciphers\\s+.*(3des-cbc|arcfour|arcfour128|arcfour256|blowfish-cbc|cast128-cbc)"

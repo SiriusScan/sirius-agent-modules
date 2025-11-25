@@ -1,0 +1,33 @@
+id: PERM-001
+info:
+  name: World-Writable Files in /etc
+  vulnerability_id: CWE-732
+  version: "1.0.0"
+  author: "Sirius Team"
+  severity: high
+  description: "Detects world-writable files in the /etc directory. World-writable files allow any user to modify system configuration, potentially enabling privilege escalation or system compromise."
+  cwe:
+    - CWE-732
+  references:
+    - https://cwe.mitre.org/data/definitions/732.html
+    - https://www.sans.org/white-papers/737/
+  tags:
+    - permissions
+    - filesystem
+    - hardening
+    - privilege-escalation
+  remediation: "Remove world-writable permissions from files in /etc using 'chmod o-w <file>'. Review each file to determine appropriate permissions based on its purpose."
+
+detection:
+  logic: any
+  steps:
+    - name: "Find world-writable files in /etc"
+      type: version_cmd
+      platforms:
+        - linux
+        - darwin
+      weight: 1.0
+      config:
+        command:
+          ["find", "/etc", "-type", "f", "-perm", "-002", "-print", "-quit"]
+        regex: "/etc/"

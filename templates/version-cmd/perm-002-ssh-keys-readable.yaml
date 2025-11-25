@@ -1,0 +1,38 @@
+id: PERM-002
+info:
+  name: SSH Private Keys Readable by Others
+  vulnerability_id: CWE-732
+  version: "1.0.0"
+  author: "Sirius Team"
+  severity: high
+  description: "Detects SSH private key files with permissions that allow other users to read them. Private keys should only be readable by the owner (mode 600 or 400) to prevent unauthorized access."
+  cwe:
+    - CWE-732
+  references:
+    - https://cwe.mitre.org/data/definitions/732.html
+    - https://man.openbsd.org/ssh-keygen
+    - https://www.ssh.com/academy/ssh/keygen
+  tags:
+    - permissions
+    - ssh
+    - credentials
+    - hardening
+  remediation: "Set SSH private key permissions to 600 using 'chmod 600 ~/.ssh/id_*'. Ensure the ~/.ssh directory has permissions 700."
+
+detection:
+  logic: any
+  steps:
+    - name: "Check for readable SSH private keys"
+      type: version_cmd
+      platforms:
+        - linux
+        - darwin
+      weight: 1.0
+      config:
+        command:
+          [
+            "sh",
+            "-c",
+            "find ~/.ssh -name 'id_*' ! -name '*.pub' -perm +044 2>/dev/null | head -1",
+          ]
+        regex: "id_"

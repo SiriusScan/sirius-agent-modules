@@ -1,0 +1,39 @@
+id: PERM-004
+info:
+  name: Sudoers Config World-Writable
+  vulnerability_id: CWE-732
+  version: "1.0.0"
+  author: "Sirius Team"
+  severity: critical
+  description: "Detects when sudoers configuration files are world-writable. This is an extremely dangerous misconfiguration that allows any user to grant themselves root privileges."
+  cwe:
+    - CWE-732
+  references:
+    - https://cwe.mitre.org/data/definitions/732.html
+    - https://man.openbsd.org/sudoers
+    - https://www.sudo.ws/docs/man/sudoers.man/
+  tags:
+    - permissions
+    - sudo
+    - privilege-escalation
+    - critical
+    - hardening
+  remediation: "Set sudoers file permissions to 440 using 'sudo chmod 440 /etc/sudoers'. Use visudo to edit the sudoers file safely. Check /etc/sudoers.d/ for additional files."
+
+detection:
+  logic: any
+  steps:
+    - name: "Check for world-writable sudoers files"
+      type: version_cmd
+      platforms:
+        - linux
+        - darwin
+      weight: 1.0
+      config:
+        command:
+          [
+            "sh",
+            "-c",
+            "find /etc/sudoers /etc/sudoers.d -perm -002 2>/dev/null | head -1",
+          ]
+        regex: "sudoers"
