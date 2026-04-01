@@ -1,0 +1,43 @@
+id: SUPPLY-AXIOS-10604
+info:
+  name: Compromised axios versions on disk (installed in node_modules)
+  version: "1.1.0"
+  author: "Sirius Agent Template Builder"
+  severity: critical
+  description: >
+    Detects known-malicious axios releases published to npm (1.14.1 and 0.30.4) as reported in
+    GitHub issue axios/axios#10604. Walks the tree from the working directory, finds every
+    node_modules/axios/package.json (hoisted, nested, and pnpm-style layouts), and compares the
+    installed "version" field. This reflects what is actually on disk, so it covers semver ranges
+    (^1.14.0, etc.), transitive dependencies, and installs from npm, Yarn, pnpm, or Bun without
+    parsing lockfiles.
+  references:
+    - https://github.com/axios/axios/issues/10604
+    - https://www.stepsecurity.io/blog/axios-compromised-on-npm-malicious-versions-drop-remote-access-trojan
+  tags:
+    - supply-chain
+    - npm
+    - axios
+    - malicious-package
+    - node_modules
+  remediation: >
+    Remove the vulnerable axios installation (delete node_modules and reinstall from a trusted
+    registry with a safe axios version per upstream guidance), verify package integrity, and rotate
+    any secrets used on affected machines. Audit CI caches and global node_modules if relevant.
+
+detection:
+  logic: any
+  steps:
+    - name: "Installed axios package.json reports 1.14.1 or 0.30.4 under any node_modules"
+      type: version_cmd
+      platforms:
+        - linux
+        - darwin
+        - windows
+      weight: 1.0
+      config:
+        command:
+          - node
+          - -e
+          - 'const fs=require("fs");const p=require("path");function w(d){let t;try{t=fs.readdirSync(d,{withFileTypes:true})}catch{return}for(const e of t){if(e.name==="."||e.name==="..")continue;const f=p.join(d,e.name);if(!e.isDirectory())continue;if(e.name===".git")continue;if(e.name==="node_modules"){const a=p.join(f,"axios","package.json");if(fs.existsSync(a))try{const j=JSON.parse(fs.readFileSync(a,"utf8"));if(j.version==="1.14.1"||j.version==="0.30.4"){console.log("VULN");process.exit(0)}}catch{}}w(f)}}w(process.cwd())'
+        regex: "^VULN\\s*$"
