@@ -1,6 +1,6 @@
 {
   "version": "2.4.0",
-  "updated": "2026-04-01T16:30:00Z",
+  "updated": "2026-04-01T20:15:00Z",
   "description": "Sirius vulnerability detection templates",
   "templates": {
     "file-hash/apache.yaml": {
@@ -259,25 +259,38 @@
       "author": "Sirius Agent Template Builder",
       "created": "2026-04-01T16:30:00Z",
       "updated": "2026-04-01T16:30:00Z"
+    },
+    "version-cmd/cve-2026-32746-telnetd.yaml": {
+      "id": "TELNETD-CVE-2026-32746",
+      "vulnerability_id": "CVE-2026-32746",
+      "version": "1.0.0",
+      "checksum": "sha256:c4005252f97a189edba4d120fbf832604dbb84bff25907b0e74b63b36ee91895",
+      "size": 2054,
+      "severity": "critical",
+      "platforms": ["linux", "darwin"],
+      "detection_type": "version-cmd",
+      "author": "Sirius Agent Template Builder",
+      "created": "2026-04-01T20:15:00Z",
+      "updated": "2026-04-01T20:15:00Z"
     }
   },
   "statistics": {
-    "total_templates": 20,
+    "total_templates": 21,
     "by_type": {
       "file-hash": 1,
       "file-content": 8,
-      "version-cmd": 11
+      "version-cmd": 12
     },
     "by_severity": {
-      "critical": 5,
+      "critical": 6,
       "high": 7,
       "medium": 7,
       "low": 1
     },
     "by_platform": {
       "windows": 3,
-      "linux": 18,
-      "darwin": 19
+      "linux": 19,
+      "darwin": 20
     }
   }
 }
