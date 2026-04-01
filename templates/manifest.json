@@ -1,6 +1,6 @@
 {
-  "version": "2.3.0",
-  "updated": "2025-01-25T14:00:00Z",
+  "version": "2.4.0",
+  "updated": "2026-04-01T16:30:00Z",
   "description": "Sirius vulnerability detection templates",
   "templates": {
     "file-hash/apache.yaml": {
@@ -246,25 +246,38 @@
       "author": "Sirius Team",
       "created": "2025-01-25T14:00:00Z",
       "updated": "2025-01-25T14:00:00Z"
+    },
+    "version-cmd/axios-compromised-npm-10604.yaml": {
+      "id": "SUPPLY-AXIOS-10604",
+      "vulnerability_id": "AXIOS-10604",
+      "version": "1.1.0",
+      "checksum": "sha256:978b136235532bd73ff8c6f556ea9a9aaf6d84d3f6e27b86ec03e188c0704c2c",
+      "size": 2130,
+      "severity": "critical",
+      "platforms": ["linux", "darwin", "windows"],
+      "detection_type": "version-cmd",
+      "author": "Sirius Agent Template Builder",
+      "created": "2026-04-01T16:30:00Z",
+      "updated": "2026-04-01T16:30:00Z"
     }
   },
   "statistics": {
-    "total_templates": 19,
+    "total_templates": 20,
     "by_type": {
       "file-hash": 1,
       "file-content": 8,
-      "version-cmd": 10
+      "version-cmd": 11
     },
     "by_severity": {
-      "critical": 4,
+      "critical": 5,
       "high": 7,
       "medium": 7,
       "low": 1
     },
     "by_platform": {
-      "windows": 2,
-      "linux": 17,
-      "darwin": 18
+      "windows": 3,
+      "linux": 18,
+      "darwin": 19
     }
   }
 }
