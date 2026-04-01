@@ -1,16 +1,19 @@
 id: SUPPLY-AXIOS-10604
 info:
   name: Compromised axios versions on disk (installed in node_modules)
-  version: "1.1.0"
-  author: "Sirius Agent Template Builder"
+  version: "1.3.0"
+  author: "Sirius Team"
   severity: critical
   description: >
     Detects known-malicious axios releases published to npm (1.14.1 and 0.30.4) as reported in
-    GitHub issue axios/axios#10604. Walks the tree from the working directory, finds every
+    GitHub issue axios/axios#10604. Recursively walks the filesystem from the OS root ("/" on
+    Linux/macOS; each available drive letter A: through Z: on Windows), finds every
     node_modules/axios/package.json (hoisted, nested, and pnpm-style layouts), and compares the
-    installed "version" field. This reflects what is actually on disk, so it covers semver ranges
-    (^1.14.0, etc.), transitive dependencies, and installs from npm, Yarn, pnpm, or Bun without
-    parsing lockfiles.
+    installed "version" field. On match, stdout is a VULN marker line plus one absolute path per line
+    to each vulnerable axios package.json (deduplicated). Skips Linux pseudo-filesystems (/proc, /sys,
+    /dev, /run, /snap) to avoid pointless work. Full-disk scans can take a long time; for a quick check, set
+    SIRIUS_TEMPLATE_SCAN_ROOT to a comma-separated list of directories to scan instead (for
+    example a single project or home directory).
   references:
     - https://github.com/axios/axios/issues/10604
     - https://www.stepsecurity.io/blog/axios-compromised-on-npm-malicious-versions-drop-remote-access-trojan
@@ -28,7 +31,7 @@ info:
 detection:
   logic: any
   steps:
-    - name: "Installed axios package.json reports 1.14.1 or 0.30.4 under any node_modules"
+    - name: "Installed axios package.json reports 1.14.1 or 0.30.4 under any node_modules (root scan)"
       type: version_cmd
       platforms:
         - linux
@@ -39,5 +42,5 @@ detection:
         command:
           - node
           - -e
-          - 'const fs=require("fs");const p=require("path");function w(d){let t;try{t=fs.readdirSync(d,{withFileTypes:true})}catch{return}for(const e of t){if(e.name==="."||e.name==="..")continue;const f=p.join(d,e.name);if(!e.isDirectory())continue;if(e.name===".git")continue;if(e.name==="node_modules"){const a=p.join(f,"axios","package.json");if(fs.existsSync(a))try{const j=JSON.parse(fs.readFileSync(a,"utf8"));if(j.version==="1.14.1"||j.version==="0.30.4"){console.log("VULN");process.exit(0)}}catch{}}w(f)}}w(process.cwd())'
-        regex: "^VULN\\s*$"
+          - 'const fs=require("fs"),p=require("path");const hits=[];function bad(v){return v==="1.14.1"||v==="0.30.4"}function checkPkg(f){try{const j=JSON.parse(fs.readFileSync(f,"utf8"));if(bad(j.version))hits.push(p.resolve(f))}catch{}}function skipPath(d){if(process.platform==="win32")return false;const n=p.normalize(d),x=["/proc","/sys","/dev","/run","/snap"];for(const s of x){if(n===s||n.startsWith(s+p.sep))return true}return false}function w(d){if(skipPath(d))return;let t;try{t=fs.readdirSync(d,{withFileTypes:true})}catch{return}for(const e of t){if(e.name==="."||e.name==="..")continue;const f=p.join(d,e.name);if(!e.isDirectory())continue;if(e.name===".git")continue;if(e.name==="node_modules"){const a=p.join(f,"axios","package.json");if(fs.existsSync(a))checkPkg(a)}w(f)}}const env=process.env.SIRIUS_TEMPLATE_SCAN_ROOT;if(env&&env.trim()){env.split(",").map(s=>s.trim()).filter(Boolean).forEach(r=>{if(fs.existsSync(r))w(r)})}else if(process.platform==="win32"){for(let i=65;i<=90;i++){const r=String.fromCharCode(i)+":\\";if(fs.existsSync(r))w(r)}}else{w("/")}if(hits.length){console.log("VULN");[...new Set(hits)].forEach(h=>console.log(h));process.exit(0)}'
+        regex: "^VULN\\s*\\r?\\n"
