@@ -1,6 +1,6 @@
 {
-  "version": "2.4.0",
-  "updated": "2026-04-01T18:45:00Z",
+  "version": "2.5.0",
+  "updated": "2026-04-01T20:00:00Z",
   "description": "Sirius vulnerability detection templates",
   "templates": {
     "file-hash/apache.yaml": {
@@ -9,7 +9,11 @@
       "checksum": "sha256:demo1234567890abcdef1234567890abcdef1234567890abcdef1234567890ab",
       "size": 850,
       "severity": "medium",
-      "platforms": ["linux", "windows", "darwin"],
+      "platforms": [
+        "linux",
+        "windows",
+        "darwin"
+      ],
       "detection_type": "file-hash",
       "author": "Sirius Team",
       "created": "2024-01-20T10:00:00Z",
@@ -21,7 +25,10 @@
       "checksum": "sha256:demo5678901234cdef5678901234cdef5678901234cdef5678901234cdef5678",
       "size": 720,
       "severity": "medium",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "file-content",
       "author": "Sirius Team",
       "created": "2024-01-20T10:00:00Z",
@@ -33,7 +40,11 @@
       "checksum": "sha256:demo9012345678efgh9012345678efgh9012345678efgh9012345678efgh9012",
       "size": 650,
       "severity": "low",
-      "platforms": ["linux", "darwin", "windows"],
+      "platforms": [
+        "linux",
+        "darwin",
+        "windows"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2024-01-20T10:00:00Z",
@@ -46,7 +57,10 @@
       "checksum": "sha256:pending",
       "size": 1200,
       "severity": "high",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "file-content",
       "author": "Sirius Team",
       "created": "2025-01-25T10:00:00Z",
@@ -59,7 +73,10 @@
       "checksum": "sha256:pending",
       "size": 1100,
       "severity": "medium",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "file-content",
       "author": "Sirius Team",
       "created": "2025-01-25T10:00:00Z",
@@ -72,7 +89,10 @@
       "checksum": "sha256:pending",
       "size": 1150,
       "severity": "medium",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "file-content",
       "author": "Sirius Team",
       "created": "2025-01-25T10:00:00Z",
@@ -85,7 +105,10 @@
       "checksum": "sha256:pending",
       "size": 1100,
       "severity": "medium",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "file-content",
       "author": "Sirius Team",
       "created": "2025-01-25T10:00:00Z",
@@ -98,7 +121,10 @@
       "checksum": "sha256:pending",
       "size": 1050,
       "severity": "critical",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "file-content",
       "author": "Sirius Team",
       "created": "2025-01-25T10:00:00Z",
@@ -111,7 +137,9 @@
       "checksum": "sha256:pending",
       "size": 1100,
       "severity": "critical",
-      "platforms": ["darwin"],
+      "platforms": [
+        "darwin"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2025-01-25T12:00:00Z",
@@ -124,7 +152,9 @@
       "checksum": "sha256:pending",
       "size": 1200,
       "severity": "high",
-      "platforms": ["darwin"],
+      "platforms": [
+        "darwin"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2025-01-25T12:00:00Z",
@@ -137,7 +167,9 @@
       "checksum": "sha256:pending",
       "size": 1150,
       "severity": "high",
-      "platforms": ["darwin"],
+      "platforms": [
+        "darwin"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2025-01-25T12:00:00Z",
@@ -150,7 +182,9 @@
       "checksum": "sha256:pending",
       "size": 1100,
       "severity": "medium",
-      "platforms": ["darwin"],
+      "platforms": [
+        "darwin"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2025-01-25T12:00:00Z",
@@ -163,7 +197,10 @@
       "checksum": "sha256:pending",
       "size": 1050,
       "severity": "high",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2025-01-25T14:00:00Z",
@@ -176,7 +213,10 @@
       "checksum": "sha256:pending",
       "size": 1100,
       "severity": "high",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2025-01-25T14:00:00Z",
@@ -189,7 +229,10 @@
       "checksum": "sha256:pending",
       "size": 1050,
       "severity": "medium",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2025-01-25T14:00:00Z",
@@ -202,7 +245,10 @@
       "checksum": "sha256:pending",
       "size": 1100,
       "severity": "critical",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2025-01-25T14:00:00Z",
@@ -215,7 +261,10 @@
       "checksum": "sha256:pending",
       "size": 1150,
       "severity": "high",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2025-01-25T14:00:00Z",
@@ -228,7 +277,10 @@
       "checksum": "sha256:pending",
       "size": 1200,
       "severity": "high",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2025-01-25T14:00:00Z",
@@ -241,7 +293,10 @@
       "checksum": "sha256:pending",
       "size": 1100,
       "severity": "medium",
-      "platforms": ["linux", "darwin"],
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
       "detection_type": "file-content",
       "author": "Sirius Team",
       "created": "2025-01-25T14:00:00Z",
@@ -254,30 +309,52 @@
       "checksum": "sha256:2c6514665df2ee71b0aa02b70699713c9ef269589735882c96b3bbe587d9a7e9",
       "size": 3101,
       "severity": "critical",
-      "platforms": ["linux", "darwin", "windows"],
+      "platforms": [
+        "linux",
+        "darwin",
+        "windows"
+      ],
       "detection_type": "version-cmd",
       "author": "Sirius Team",
       "created": "2026-04-01T16:30:00Z",
       "updated": "2026-04-01T18:45:00Z"
+    },
+    "file-search/axios-supply-chain-2026-001.yaml": {
+      "id": "AXIOS-SUPPLY-CHAIN-2026-001",
+      "vulnerability_id": "AXIOS-SUPPLY-CHAIN-2026-001",
+      "version": "1.0.0",
+      "checksum": "sha256:fa06697c862eb90a7c41d1f5af3240df3d9db9063b142fd5690cbcc70b0b9300",
+      "size": 1569,
+      "severity": "critical",
+      "platforms": [
+        "linux",
+        "darwin",
+        "windows"
+      ],
+      "detection_type": "file-search",
+      "author": "Sirius Scan",
+      "created": "2026-04-01T20:00:00Z",
+      "updated": "2026-04-01T20:00:00Z"
     }
   },
   "statistics": {
-    "total_templates": 20,
+    "total_templates": 21,
     "by_type": {
+      "file-content": 7,
       "file-hash": 1,
-      "file-content": 8,
-      "version-cmd": 11
+      "file-search": 1,
+      "version-cmd": 12
     },
     "by_severity": {
       "critical": 5,
       "high": 7,
-      "medium": 7,
+      "medium": 8,
       "low": 1
     },
     "by_platform": {
-      "windows": 3,
-      "linux": 18,
-      "darwin": 19
+      "darwin": 21,
+      "linux": 17,
+      "windows": 4
     }
   }
 }
