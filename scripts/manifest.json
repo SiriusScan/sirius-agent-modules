@@ -1,83 +1,87 @@
 {
-  "version": "2.0.0",
-  "updated": "2024-01-20T10:00:00Z",
   "description": "Sirius vulnerability detection scripts",
   "scripts": {
     "cross-platform/certificate-validation.py": {
-      "id": "CERT-VALIDATION-001",
-      "version": "1.0.0",
+      "author": "sirius-team",
       "checksum": "sha256:7ad79cadf96bd25bf09665c22ff562da9dc02bb100c0a7023b27056089352356",
-      "size": 5442,
-      "severity": "medium",
-      "platforms": ["linux", "macos", "windows"],
+      "created": "2024-01-15T10:30:00Z",
+      "id": "CERT-VALIDATION-001",
       "language": "python",
-      "author": "sirius-team",
-      "created": "2024-01-15T10:30:00Z",
-      "updated": "2024-01-15T10:30:00Z",
-      "vulnerability_ids": ["CUSTOM-CERT-001"],
-      "requires": ["python3"]
-    },
-    "cross-platform/find-password-files.sh": {
-      "id": "PASSWORD-FILES-001",
-      "version": "1.0.0",
-      "checksum": "sha256:",
-      "size": 0,
+      "platforms": [
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "requires": [
+        "python3"
+      ],
       "severity": "medium",
-      "platforms": ["linux", "macos", "windows"],
-      "language": "bash",
-      "author": "sirius-team",
-      "created": "2024-01-15T10:30:00Z",
+      "size": 5442,
       "updated": "2024-01-15T10:30:00Z",
-      "vulnerability_ids": ["CUSTOM-PASSWORD-001"],
-      "requires": ["bash"]
+      "version": "1.0.0",
+      "vulnerability_ids": [
+        "CUSTOM-CERT-001"
+      ]
     },
     "linux/check-suid-binaries.sh": {
-      "id": "SUID-BINARIES-001",
-      "version": "1.0.0",
-      "checksum": "sha256:f67342074a262207559deaa0fe4f813d0891737470b477f54983268b20073f00",
-      "size": 2842,
-      "severity": "high",
-      "platforms": ["linux"],
-      "language": "bash",
       "author": "sirius-team",
+      "checksum": "sha256:f67342074a262207559deaa0fe4f813d0891737470b477f54983268b20073f00",
       "created": "2024-01-15T10:30:00Z",
+      "id": "SUID-BINARIES-001",
+      "language": "bash",
+      "platforms": [
+        "linux"
+      ],
+      "requires": [
+        "bash"
+      ],
+      "severity": "high",
+      "size": 2842,
       "updated": "2024-01-15T10:30:00Z",
-      "vulnerability_ids": ["CUSTOM-SUID-001"],
-      "requires": ["bash"]
+      "version": "1.0.0",
+      "vulnerability_ids": [
+        "CUSTOM-SUID-001"
+      ]
     },
     "windows/check-service-permissions.ps1": {
-      "id": "SERVICE-PERMISSIONS-001",
-      "version": "1.0.0",
-      "checksum": "sha256:a683cc481f2de79ef1262e65c7e7ebb5456857a67bb7ca84c0cedf2726091026",
-      "size": 2581,
-      "severity": "high",
-      "platforms": ["windows"],
-      "language": "powershell",
       "author": "sirius-team",
+      "checksum": "sha256:a683cc481f2de79ef1262e65c7e7ebb5456857a67bb7ca84c0cedf2726091026",
       "created": "2024-01-15T10:30:00Z",
+      "id": "SERVICE-PERMISSIONS-001",
+      "language": "powershell",
+      "platforms": [
+        "windows"
+      ],
+      "requires": [
+        "powershell"
+      ],
+      "severity": "high",
+      "size": 2581,
       "updated": "2024-01-15T10:30:00Z",
-      "vulnerability_ids": ["CUSTOM-WINDOWS-SERVICE-001"],
-      "requires": ["powershell"]
+      "version": "1.0.0",
+      "vulnerability_ids": [
+        "CUSTOM-WINDOWS-SERVICE-001"
+      ]
     }
   },
   "statistics": {
-    "total_scripts": 4,
-    "by_platform": {
-      "windows": 1,
-      "linux": 2,
-      "macos": 2,
-      "cross-platform": 2
-    },
     "by_language": {
-      "bash": 2,
-      "python": 1,
-      "powershell": 1
+      "bash": 1,
+      "powershell": 1,
+      "python": 1
+    },
+    "by_platform": {
+      "cross-platform": 1,
+      "linux": 2,
+      "macos": 1,
+      "windows": 2
     },
     "by_severity": {
-      "critical": 0,
       "high": 2,
-      "medium": 2,
-      "low": 0
-    }
-  }
+      "medium": 1
+    },
+    "total_scripts": 3
+  },
+  "updated": "2024-01-20T10:00:00Z",
+  "version": "2.0.0"
 }

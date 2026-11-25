@@ -1,0 +1,4 @@
+# Keep byte counts and SHA-256 checksums stable across checkouts.
+repository-manifest.json text eol=lf
+templates/** text=auto eol=lf
+scripts/** text=auto eol=lf
