@@ -13,44 +13,8 @@ Thank you for your interest in contributing to Sirius Agent Modules! This docume
 
 ## Template Contributions
 
-### Template Structure
-
-Templates should be YAML files with the following structure:
-
-```yaml
-id: "unique-template-id"
-info:
-  name: "Human-readable name"
-  description: "Brief description of what this template detects"
-  author: "Your name or organization"
-  severity: "critical|high|medium|low"
-  platforms: ["windows", "linux", "macos"]
-  vulnerability_ids: ["CVE-2023-1234", "CUSTOM-001"]
-  created: "2024-01-15T10:30:00Z"
-  updated: "2024-01-15T10:30:00Z"
-
-detection:
-  type: "file-hash|registry|config-file"
-  targets:
-    - path: "/path/to/file"
-      hash: "sha256:abc123..."
-      description: "Description of this target"
-
-  conditions:
-    - type: "file_exists"
-      path: "/path/to/file"
-    - type: "hash_matches"
-      path: "/path/to/file"
-      hash: "sha256:abc123..."
-
-remediation:
-  description: "How to fix this vulnerability"
-  steps:
-    - "Step 1: Update the software"
-    - "Step 2: Apply security patch"
-  references:
-    - "https://example.com/security-advisory"
-```
+Use the [template development guide](template-development.md) for the current
+YAML schema, a complete example, and the offline validation commands.
 
 ### Template Guidelines
 
@@ -122,7 +86,7 @@ Scripts should output JSON in the following format:
 - Test on target platforms
 - Verify detection accuracy
 - Test with both vulnerable and non-vulnerable systems
-- Validate YAML syntax
+- Run the repository validator from the template development guide
 
 ### For Scripts
 
@@ -137,7 +101,7 @@ Scripts should output JSON in the following format:
 2. **Add to appropriate directory**:
    - Templates: `templates/{type}/`
    - Scripts: `scripts/{platform}/`
-3. **Update manifests** if adding new files
+3. **Regenerate and validate the manifests** after changing template or script files. Follow the [offline commands](template-development.md#regenerate-and-validate-the-manifests).
 4. **Test thoroughly** on target platforms
 5. **Submit pull request** with:
    - Clear description of changes

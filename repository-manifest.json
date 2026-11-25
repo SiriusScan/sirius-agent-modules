@@ -1,38 +1,39 @@
 {
-  "version": "2.0.0",
-  "updated": "2024-01-20T10:00:00Z",
-  "name": "sirius-agent-modules",
-  "description": "Sirius vulnerability detection templates and scripts",
-  "publisher": "Sirius Security",
-  "license": "MIT",
-  "url": "https://github.com/SiriusScan/sirius-agent-modules",
-  "min_agent_version": "1.0.0",
   "components": {
-    "templates": {
-      "path": "templates/",
-      "manifest": "templates/manifest.json",
-      "version": "2.0.0",
-      "updated": "2024-01-20T10:00:00Z"
-    },
     "scripts": {
-      "path": "scripts/",
       "manifest": "scripts/manifest.json",
-      "version": "2.0.0",
-      "updated": "2024-01-20T10:00:00Z"
+      "path": "scripts/",
+      "updated": "2024-01-20T10:00:00Z",
+      "version": "2.0.0"
+    },
+    "templates": {
+      "manifest": "templates/manifest.json",
+      "path": "templates/",
+      "updated": "2026-04-01T20:00:00Z",
+      "version": "2.5.0"
     }
   },
+  "description": "Sirius vulnerability detection templates and scripts",
+  "license": "MIT",
+  "min_agent_version": "1.0.0",
+  "name": "sirius-agent-modules",
+  "publisher": "Sirius Security",
   "statistics": {
-    "total_templates": 3,
-    "total_scripts": 4,
-    "by_type": {
-      "file-hash": 1,
-      "file-content": 1,
-      "version-cmd": 1
-    },
     "by_platform": {
-      "windows": 3,
-      "linux": 4,
-      "macos": 3
-    }
-  }
+      "linux": 19,
+      "macos": 22,
+      "windows": 5
+    },
+    "by_type": {
+      "file-content": 7,
+      "file-hash": 1,
+      "file-search": 1,
+      "version-cmd": 12
+    },
+    "total_scripts": 3,
+    "total_templates": 21
+  },
+  "updated": "2024-01-20T10:00:00Z",
+  "url": "https://github.com/SiriusScan/sirius-agent-modules",
+  "version": "2.0.0"
 }

@@ -218,7 +218,8 @@ Ensure the output is valid JSON and follows the required format.
 
 1. Create script in appropriate platform directory
 2. Test thoroughly on target platforms
-3. Update `scripts/manifest.json` with script metadata
+3. Add or update the entry in `scripts/manifest.json` and follow the
+   [manifest regeneration steps](template-development.md#regenerate-and-validate-the-manifests)
 4. Submit pull request with description of vulnerability detected
 5. Include test cases and example outputs
 

@@ -11,9 +11,10 @@ This repository contains vulnerability detection templates and scripts for the S
 ```
 sirius-agent-modules/
 ├── templates/           # YAML-based vulnerability detection templates
-│   ├── hash-based/     # File hash-based detection templates
-│   ├── registry-based/ # Windows registry-based detection templates
-│   └── config-based/   # Configuration file-based detection templates
+│   ├── file-content/   # File content matching
+│   ├── file-hash/      # File hash checks
+│   ├── file-search/    # File searches
+│   └── version-cmd/    # Installed version checks
 ├── scripts/            # Executable vulnerability detection scripts
 │   ├── windows/        # PowerShell scripts for Windows
 │   ├── linux/          # Bash scripts for Linux
@@ -25,9 +26,8 @@ sirius-agent-modules/
 
 ### Templates
 
-- **Hash-based**: Detect vulnerable software versions via file hashes
-- **Registry-based**: Detect Windows registry vulnerabilities and misconfigurations
-- **Config-based**: Detect security misconfigurations in configuration files
+Templates use the agent's `detection.steps[]` format with `file_content`,
+`file_hash`, `file_search`, and `version_cmd` modules.
 
 ### Scripts
 
@@ -45,8 +45,8 @@ Agents automatically download and update templates and scripts from this reposit
 
 1. Fork this repository
 2. Add your templates or scripts following the guidelines in `docs/`
-3. Submit a pull request
-4. Your contribution will be reviewed and merged
+3. [Regenerate and validate the manifests](docs/template-development.md#regenerate-and-validate-the-manifests)
+4. Submit a pull request
 
 ## Contributing
 
